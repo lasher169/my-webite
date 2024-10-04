@@ -7,7 +7,11 @@
     "lint:js": "eslint .",
     "lint:css": "stylelint blocks/**/*.css styles/*.css",
     "lint": "npm run lint:js && npm run lint:css",
-    "semantic-release": "semantic-release --debug"
+    "semantic-release": "semantic-release --debug",
+    "minify:js": "terser --compress --mangle --output blocks/js/main.min.js blocks/js/main.js",
+    "minify:css": "cleancss --level 1 --source-map --output blocks/css/main.min.css blocks/css/main.css",
+    "minify": "npm run minify:js && npm run minify:css",
+    "build": "npm run lint && npm run minify"
   },
   "repository": {
     "type": "git",
